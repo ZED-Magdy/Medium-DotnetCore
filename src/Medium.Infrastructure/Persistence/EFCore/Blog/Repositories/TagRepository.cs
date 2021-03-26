@@ -32,6 +32,12 @@ namespace Medium.Infrastructure.Persistence.EFCore.Blog.Repositories
             return await context.Tags.ToListAsync(token);
         }
 
+        public async Task<IEnumerable<Tag>> GetByArticleIdAsync(Guid ArticleId, CancellationToken token)
+        {
+            return await context.ArticleTags.Where(at => at.ArticleId == ArticleId)
+            .Include(at => at.Tag).Select(at => at.Tag).ToListAsync(token);
+        }
+
         public async Task<Tag> GetByIdAsync(Guid Id, CancellationToken token)
         {
             return await context.Tags.FirstOrDefaultAsync(t => t.Id == Id, token);
