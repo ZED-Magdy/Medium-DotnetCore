@@ -12,8 +12,8 @@
 - [x] Add Blogs Queries
 - [x] Add Blog Categories Commands
 - [x] Add Blog Categories Queries
-- [ ] Add Blog Tags Commands
-- [ ] Add Blog Tags Queries
+- [x] Add Blog Tags Commands
+- [x] Add Blog Tags Queries
 - [ ] Add Blog MediaObjects Commands
 - [ ] Add Blog MediaObjects Queries
 - [ ] Impelement The Application Layer in the Web Layer

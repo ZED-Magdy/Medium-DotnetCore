@@ -24,21 +24,21 @@ namespace Medium.Infrastructure.Persistence.EFCore.Blog.Repositories
 
         public async Task<bool> CategoryNameExist(string Name, CancellationToken token)
         {
-            return await context.Categories.CountAsync(c => c.Name == Name, token) > 0;
+            return await context.Categories.AsNoTracking().CountAsync(c => c.Name == Name, token) > 0;
         }
 
         public async Task<bool> CategoryNameExist(string Name, Guid Id, CancellationToken token)
         {
-            return await context.Categories.CountAsync(c => c.Id != Id && c.Name == Name, token) > 0;
+            return await context.Categories.AsNoTracking().CountAsync(c => c.Id != Id && c.Name == Name, token) > 0;
         }
         public async Task<bool> Exists(Guid Id, CancellationToken token)
         {
-            return await context.Categories.CountAsync(a => a.Id == Id, token) > 0;
+            return await context.Categories.AsNoTracking().CountAsync(a => a.Id == Id, token) > 0;
         }
 
         public async Task<IEnumerable<Category>> GetAllAsync(CancellationToken token)
         {
-            return await context.Categories.ToListAsync(token);
+            return await context.Categories.AsNoTracking().ToListAsync(token);
         }
 
         public async Task<Category> GetByIdAsync(Guid Id, CancellationToken token)

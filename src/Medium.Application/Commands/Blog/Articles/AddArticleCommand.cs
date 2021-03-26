@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -59,7 +60,7 @@ namespace Medium.Application.Commands.Blog.Articles
                 }
                 //Check if tags Exists
                 List<Tag> tags = new List<Tag>();
-                foreach(Guid tagId in request.TagsId)
+                foreach(Guid tagId in request.TagsId.Take(5))
                 {
                     var tag = await tagRepository.GetByIdAsync(tagId, cancellationToken);
                     if (tag == null)

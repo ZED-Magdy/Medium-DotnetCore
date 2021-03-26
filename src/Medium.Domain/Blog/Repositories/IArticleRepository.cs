@@ -11,5 +11,6 @@ namespace Medium.Domain.Blog.Repositories
     {
         Task<IEnumerable<Article>> GetByBlogAsync(Guid Id, CancellationToken token);
         Task<IEnumerable<Article>> GetByCategoryAsync(Guid categoryId, CancellationToken cancellationToken);
+        Task<IEnumerable<Article>> GetByTagAsync(Guid tagId, CancellationToken cancellationToken);
     }
 }

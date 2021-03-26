@@ -24,12 +24,12 @@ namespace Medium.Infrastructure.Persistence.EFCore.Blog.Repositories
 
         public async Task<bool> Exists(Guid Id, CancellationToken token)
         {
-            return await context.MediaObjects.CountAsync(a => a.Id == Id, token) > 0;
+            return await context.MediaObjects.AsNoTracking().CountAsync(a => a.Id == Id, token) > 0;
         }
 
         public async Task<IEnumerable<MediaObject>> GetAllAsync(CancellationToken token)
         {
-            return await context.MediaObjects.ToListAsync(token);
+            return await context.MediaObjects.AsNoTracking().ToListAsync(token);
         }
 
         public async Task<MediaObject> GetByIdAsync(Guid Id, CancellationToken token)

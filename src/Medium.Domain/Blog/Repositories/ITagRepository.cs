@@ -10,5 +10,7 @@ namespace Medium.Domain.Blog.Repositories
     public interface ITagRepository : IRepository<Tag>
     {
         Task<IEnumerable<Tag>> GetByArticleIdAsync(Guid ArticleId, CancellationToken token);
+        Task<bool> NameExistAsync(string name, CancellationToken cancellationToken);
+        Task<bool> NameExistAsync(string name, Guid id, CancellationToken cancellationToken);
     }
 }

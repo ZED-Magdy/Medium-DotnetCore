@@ -24,27 +24,33 @@ namespace Medium.Infrastructure.Persistence.EFCore.Blog.Repositories
 
         public async Task<bool> Exists(Guid Id, CancellationToken token)
         {
-            return await context.Articles.CountAsync(a => a.Id == Id, token) > 0;
+            return await context.Articles.AsNoTracking().CountAsync(a => a.Id == Id, token) > 0;
         }
 
         public async Task<IEnumerable<Article>> GetAllAsync(CancellationToken token)
         {
-            return await context.Articles.ToListAsync(token);
+            return await context.Articles.AsNoTracking().ToListAsync(token);
         }
 
         public async Task<IEnumerable<Article>> GetByBlogAsync(Guid Id, CancellationToken token)
         {
-            return await context.Articles.Where(a => a.BlogId == Id).ToListAsync(token);
+            return await context.Articles.AsNoTracking().Where(a => a.BlogId == Id).ToListAsync(token);
         }
 
         public async Task<IEnumerable<Article>> GetByCategoryAsync(Guid categoryId, CancellationToken cancellationToken)
         {
-            return await context.Articles.Where(a => a.CategoryId == categoryId).ToListAsync(cancellationToken);
+            return await context.Articles.AsNoTracking().Where(a => a.CategoryId == categoryId).ToListAsync(cancellationToken);
         }
 
         public async Task<Article> GetByIdAsync(Guid Id, CancellationToken token)
         {
             return await context.Articles.FirstOrDefaultAsync(a => a.Id == Id, token);
+        }
+
+        public async Task<IEnumerable<Article>> GetByTagAsync(Guid tagId, CancellationToken cancellationToken)
+        {
+            return await context.ArticleTags.AsNoTracking().Where(at => at.TagId == tagId)
+            .Include(at => at.Article).Select(at => at.Article).ToListAsync(cancellationToken);
         }
 
         public Guid NextIdentifier()
