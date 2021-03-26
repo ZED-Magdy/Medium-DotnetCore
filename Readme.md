@@ -10,7 +10,7 @@
 - [x] Add Blog Articles Queries
 - [x] Add Blogs Commands
 - [x] Add Blogs Queries
-- [ ] Add Blog Categories Commands
+- [x] Add Blog Categories Commands
 - [ ] Add Blog Categories Queries
 - [ ] Add Blog Tags Commands
 - [ ] Add Blog Tags Queries

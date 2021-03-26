@@ -22,6 +22,15 @@ namespace Medium.Infrastructure.Persistence.EFCore.Blog.Repositories
             await context.Categories.AddAsync(Category, token);
         }
 
+        public async Task<bool> CategoryNameExist(string Name, CancellationToken token)
+        {
+            return await context.Categories.CountAsync(c => c.Name == Name, token) > 0;
+        }
+
+        public async Task<bool> CategoryNameExist(string Name, Guid Id, CancellationToken token)
+        {
+            return await context.Categories.CountAsync(c => c.Id != Id && c.Name == Name, token) > 0;
+        }
         public async Task<bool> Exists(Guid Id, CancellationToken token)
         {
             return await context.Categories.CountAsync(a => a.Id == Id, token) > 0;
