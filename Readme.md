@@ -8,9 +8,9 @@
 - [x] Setup MediatR
 - [x] Add Blog Articles Commands
 - [x] Add Blog Articles Queries
-- [ ] Add Blog Commands
+- [x] Add Blogs Commands
 - [ ] Add Blogs Queries
-- [ ] Add Blogs Categories Commands
+- [ ] Add Blog Categories Commands
 - [ ] Add Blog Categories Queries
 - [ ] Add Blog Tags Commands
 - [ ] Add Blog Tags Queries
