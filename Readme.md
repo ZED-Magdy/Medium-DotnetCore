@@ -14,7 +14,7 @@
 - [x] Add Blog Categories Queries
 - [x] Add Blog Tags Commands
 - [x] Add Blog Tags Queries
-- [ ] Add Blog MediaObjects Commands
+- [x] Add Blog MediaObjects Commands
 - [ ] Add Blog MediaObjects Queries
 - [ ] Impelement The Application Layer in the Web Layer
 #### Subscribtion Context
