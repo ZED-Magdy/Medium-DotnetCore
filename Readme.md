@@ -11,7 +11,7 @@
 - [x] Add Blogs Commands
 - [x] Add Blogs Queries
 - [x] Add Blog Categories Commands
-- [ ] Add Blog Categories Queries
+- [x] Add Blog Categories Queries
 - [ ] Add Blog Tags Commands
 - [ ] Add Blog Tags Queries
 - [ ] Add Blog MediaObjects Commands

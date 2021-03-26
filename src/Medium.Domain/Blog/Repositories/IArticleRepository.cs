@@ -10,5 +10,6 @@ namespace Medium.Domain.Blog.Repositories
     public interface IArticleRepository : IRepository<Article>
     {
         Task<IEnumerable<Article>> GetByBlogAsync(Guid Id, CancellationToken token);
+        Task<IEnumerable<Article>> GetByCategoryAsync(Guid categoryId, CancellationToken cancellationToken);
     }
 }

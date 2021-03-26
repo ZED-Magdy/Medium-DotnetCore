@@ -37,6 +37,11 @@ namespace Medium.Infrastructure.Persistence.EFCore.Blog.Repositories
             return await context.Articles.Where(a => a.BlogId == Id).ToListAsync(token);
         }
 
+        public async Task<IEnumerable<Article>> GetByCategoryAsync(Guid categoryId, CancellationToken cancellationToken)
+        {
+            return await context.Articles.Where(a => a.CategoryId == categoryId).ToListAsync(cancellationToken);
+        }
+
         public async Task<Article> GetByIdAsync(Guid Id, CancellationToken token)
         {
             return await context.Articles.FirstOrDefaultAsync(a => a.Id == Id, token);
