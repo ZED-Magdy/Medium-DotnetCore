@@ -7,7 +7,7 @@
 - [x] Add Application Library
 - [x] Setup MediatR
 - [x] Add Blog Articles Commands
-- [ ] Add Blog Articles Queries
+- [x] Add Blog Articles Queries
 - [ ] Add Blog Commands
 - [ ] Add Blogs Queries
 - [ ] Add Blogs Categories Commands
