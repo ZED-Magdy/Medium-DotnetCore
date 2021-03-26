@@ -25,6 +25,7 @@ namespace Medium.Application.Commands.Blog.MediaObjects
                 {
                     throw new MediaObjectNotFoundException(request.Id);
                 }
+                //TODO: Remove the file
                 await repository.RemoveAsync(media, cancellationToken);
                 return true;
             }

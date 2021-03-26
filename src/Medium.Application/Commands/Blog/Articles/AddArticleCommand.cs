@@ -65,7 +65,7 @@ namespace Medium.Application.Commands.Blog.Articles
                     var tag = await tagRepository.GetByIdAsync(tagId, cancellationToken);
                     if (tag == null)
                     {
-                        throw new CategoryNotFoundException(tagId);
+                        throw new TagNotFoundException(tagId);
                     }
                     tags.Add(tag);
                 }
@@ -75,7 +75,7 @@ namespace Medium.Application.Commands.Blog.Articles
 
                     if (!(await mediaObjectRepository.Exists(request.ThumbnailId, cancellationToken)))
                     {
-                        throw new BlogNotFoundException(request.ThumbnailId);
+                        throw new MediaObjectNotFoundException(request.ThumbnailId);
                     }
                 }
                 Guid Id = repository.NextIdentifier();
